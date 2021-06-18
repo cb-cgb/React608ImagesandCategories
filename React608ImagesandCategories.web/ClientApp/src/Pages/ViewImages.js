@@ -58,32 +58,15 @@ onSubDropdownChange=e=> {
                        categories = {this.state.categories}
                        onCatDropdownChange={this.onCatDropdownChange}
                        onSubDropdownChange={this.onSubDropdownChange}
-                    />
-
-                 {/*    <select value={selectedcat} className="form-control" onChange={this.onCatDropdownChange}>         
-                                  
-                     <option value="-1">-- Choose Category --</option>
-                      {this.state.categories.map(c=>    
-                        <option key={c.id} value ={c.id}>{c.name}</option>                      
-                       )}                    
-                     </select>                   
-                    
-                    <br/>                   
-                   
-                     <select  value={selectedsubcat} className="form-control" onChange={this.onSubDropdownChange}>
-                      { <option value="-1">-- Choose Sub Category --</option> }                      
-                         {subcategories && category.subcategories.map(s=>  
-                             <option key={s.id} value ={s.id}>{s.name}</option>  
-                        )}                
-                    </select> */}                    
+                    />                
                     <br/> 
                 {selectedcat && 
                     <table className = "table table-bordered table-hover table-striped">
                       <thead>
                         <tr>
                             <th>Image</th>
-                            <th>Description</th>
                             <th>Subcategory</th>
+                            <th>Description</th>
                         </tr>
                         </thead>
                         <tbody>                            
@@ -91,8 +74,8 @@ onSubDropdownChange=e=> {
                          {subcatimages.map(s=> 
                              <tr key={s.subcatId}>
                                     <td><img src={`/imagesread/getimage?filename=${s.fileName}`} style={{ width: 100 }} /></td>
-                                    <td>{s.description}</td>
                                     <td>{s.name}</td>
+                                    <td>{s.description}</td>
                                 </tr>
                          )}
                         </tbody>
