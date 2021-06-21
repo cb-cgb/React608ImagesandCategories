@@ -84,6 +84,7 @@ onClickUpload=async()=> {
                        categories = {this.state.categories}
                        onCatDropdownChange={this.onCatDropdownChange}
                        onSubDropdownChange={this.onSubDropdownChange}
+                       showSubDropDown = {true}
                     />
 
                 {/*                 

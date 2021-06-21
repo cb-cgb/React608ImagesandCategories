@@ -58,6 +58,7 @@ onSubDropdownChange=e=> {
                        categories = {this.state.categories}
                        onCatDropdownChange={this.onCatDropdownChange}
                        onSubDropdownChange={this.onSubDropdownChange}
+                       showSubDropdown = "false"
                     />                
                     <br/> 
                 {selectedcat && 

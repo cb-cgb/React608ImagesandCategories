@@ -1,7 +1,7 @@
 import React from 'react';
 function Dropdowns(props){
    
-    const {selectedcat, selectedsubcat,categories,onCatDropdownChange,onSubDropdownChange}=props;
+    const {selectedcat, selectedsubcat,categories,onCatDropdownChange,onSubDropdownChange,showSubDropDown}=props;
     const category= categories.find(c=> c.id==selectedcat);
     const {subcategories}=category || {};
 
@@ -20,12 +20,14 @@ function Dropdowns(props){
         </select>                   
        <br/>                   
       
-        <select value={selectedsubcat} className="form-control" onChange={onSubDropdownChange}>
-         { <option value="-1">-- Choose Sub Category --</option> }                      
-            {subcategories && category.subcategories.map(s=>  
+        {showSubDropDown &&
+          <select value={selectedsubcat} className="form-control" onChange={onSubDropdownChange}>
+            { <option value="-1">-- Choose Sub Category --</option> }                      
+              {subcategories && category.subcategories.map(s=>  
                 <option key={s.id} value ={s.id}>{s.name}</option>  
-           )}                
-       </select>                    
+             )}                
+           </select>  
+        }                  
        <br/> 
 
        </>
