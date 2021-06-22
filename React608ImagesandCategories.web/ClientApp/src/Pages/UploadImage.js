@@ -56,7 +56,7 @@ onFileChange = e => {
   }
 
 onClickUpload=async()=> {
-    const {selectedcat, selectedsubcat} = this.state;
+    const {selectedsubcat} = this.state;
     const file = this.fileInputRef.current.files[0];
     const fileName = file.name;
     const base64File = await toBase64(file);

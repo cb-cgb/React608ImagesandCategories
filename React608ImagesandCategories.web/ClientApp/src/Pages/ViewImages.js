@@ -35,7 +35,7 @@ onSubDropdownChange=e=> {
 }
 
     render() { 
-        const {selectedcat,selectedsubcat,categories,subcatimages}= this.state;    
+        const {selectedcat,categories}= this.state;    
         const category= categories.find(c=> c.id==selectedcat);
          const {subcategories}=category || {};
 
