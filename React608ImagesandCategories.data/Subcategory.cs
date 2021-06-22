@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace React608ImagesandCategories.data
 {
@@ -13,8 +14,11 @@ namespace React608ImagesandCategories.data
 
         public int ImageId { get; set; }
 
-        
-        
+        [NotMapped]
+        public String ImageFileName => Image.FileName;
+        [NotMapped]
+        public String ImageDescription => Image.Description;
+
         [JsonIgnore]
         public Category Category { get; set; }
 

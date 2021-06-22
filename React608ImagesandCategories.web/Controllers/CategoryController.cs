@@ -81,28 +81,9 @@ namespace React608ImagesandCategories.web.Controllers
             db.UpdateImage(s);
         }
 
-        [HttpGet]
-        [Route("getimage/{Id}")]
-        public Image GetImage(int Id)
-        {
-            var repo = new CategoryRepository(_conn);
-            return repo.GetImage(Id);
-        }
+       
 
-        [HttpGet]
-        [Route("getsubcatimg/{catId}")]
-        public List<SubcatImage> GetImages(int catId)
-        {
-            var repo = new CategoryRepository(_conn);
-            return repo.GetImages(catId).Select(s=> new SubcatImage
-            {
-                SubcatId=s.Id,
-                Name=s.Name,
-                ImageId=s.ImageId,
-                Description=s.Image.Description,
-                FileName=s.Image.FileName
-            }).ToList();
-        }
+        
 
     }
 }

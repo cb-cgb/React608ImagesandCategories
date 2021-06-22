@@ -86,30 +86,6 @@ onClickUpload=async()=> {
                        onSubDropdownChange={this.onSubDropdownChange}
                        showSubDropDown = {true}
                     />
-
-                {/*                 
-                    <select value={this.props.match.params.catid} className="form-control" onChange={this.onCatDropdownChange}>         
-                                  
-                     <option value="-1">-- Choose Category --</option>
-                      {this.state.categories.map(c=>    
-                        <option key={c.id} value ={c.id}>{c.name}</option>                      
-                       )}                    
-                     </select>
-                   
-                    <br/>                   
-                   
-                     <select  value={this.props.match.params.subcatid} className="form-control" onChange={this.onSubDropdownChange}>
-                      { <option value="-1">-- Choose Sub Category --</option> }                      
-                         {subcategories && category.subcategories.map(s=>  
-                          /*  {  console.log({s});
-                               console.log(`<option key=${s.id} value=${s.id}>${s.name}</option>`)
-                            return (      
-                                //<option key={s.id} value ={s.id}>{s.name}</option>  
-                           // )}                       
-                      //  )}                
-                    //</select> 
-                */}
-
                      <br/>
                     <input ref={this.fileInputRef} type="file" name="image" className="form-control" onChange={this.onFileChange} />
                     <br/>

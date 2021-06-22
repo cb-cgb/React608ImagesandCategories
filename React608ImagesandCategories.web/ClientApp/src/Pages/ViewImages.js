@@ -8,32 +8,25 @@ class ViewImages extends Component {
     state = {
         categories: [ {
             id: 0,
-            name: '',
-            subcategories: [{ id: 0,name: '',  categoryid: 0,  imageid: 0 }]
+            name: ''           
         }],
 
         selectedcat: '',
         selectedsubcat: '',
-        subcatimages:[{subcatId:0, name:'', imageid:0, description:'', filename:''}]
-    
+      
       }
 
 componentDidMount =async()=> {
     
     const {data} = await axios.get('/api/category/getcat');
+    console.log(data);
     await this.setState({categories: data});
        
 }
 
-getSubcatImages = async(catId) => {
-    const {data} = await axios.get(`/api/category/getsubcatimg/${catId}`);
-    console.log(data);
-    this.setState({subcatimages: data});
-}
-
 onCatDropdownChange= async e=> {
     await this.setState({selectedcat: e.target.value});
-    await this.getSubcatImages(this.state.selectedcat);
+  //  await this.getSubcatImages(this.state.selectedcat);
     console.log(this.state.subcatimages);
 }
 
@@ -43,8 +36,9 @@ onSubDropdownChange=e=> {
 
     render() { 
         const {selectedcat,selectedsubcat,categories,subcatimages}= this.state;    
-        //const category= categories.find(c=> c.id==selectedcat);
-        // const {subcategories}=category || {};
+        const category= categories.find(c=> c.id==selectedcat);
+         const {subcategories}=category || {};
+
       
         return ( 
          <div>
@@ -72,11 +66,11 @@ onSubDropdownChange=e=> {
                         </thead>
                         <tbody>                            
                         
-                         {subcatimages.map(s=> 
-                             <tr key={s.subcatId}>
-                                    <td><img src={`/imagesread/getimage?filename=${s.fileName}`} style={{ width: 100 }} /></td>
+                         {subcategories.map(s=> 
+                             <tr key={s.id}>
+                                    <td><img src={`/imagesread/getimage?filename=${s.imageFileName}`} style={{ width: 100 }} /></td>
                                     <td>{s.name}</td>
-                                    <td>{s.description}</td>
+                                    <td>{s.imageDescription}</td>
                                 </tr>
                          )}
                         </tbody>

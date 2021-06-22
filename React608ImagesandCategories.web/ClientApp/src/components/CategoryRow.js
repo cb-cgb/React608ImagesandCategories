@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 function CategoryRow (props)   {
   const{id,name, subcategories,showsubtable,newsubcatname} = props.category;
-  const {onClickAddSub,onTextChangeSub, onClickViewSub,addSub,subCatName,subcatimages}= props;
+  console.log(newsubcatname);
+  const {onClickAddSub,onTextChangeSub, onClickViewSub,addSub}= props;
   const subcatexists = subcategories.length > 0;
    
         return ( 
@@ -45,39 +46,20 @@ function CategoryRow (props)   {
                 </thead>
                 <tbody>
                    
-                     {subcatimages.map(s=> 
-                       <tr key={s.subcatId}>                      
+                     {subcategories.map(s=> 
+                       <tr key={s.id}>                      
                        <td>{s.name}</td>
                        <td>
-                          <img src={`/imagesread/getimage?filename=${s.fileName}`} style={{ width: 50 }} />
+                          <img src={`/imagesread/getimage?filename=${s.imageFileName}`} style={{ width: 50 }} />
                        </td>
                        <td>
-                           <Link to={`/uplimg/${id}, ${s.subcatId}`}>
+                           <Link to={`/uplimg/${id}, ${s.id}`}>
                                <button className="btn btn-primary" >Upload Image</button>
                            </Link>
                        </td>
                      </tr>               
                      )}
-
-                     {/* 
-                     --if using updateImageFileNameI() approach. Currently using GetSubcatImages() instead.
-                     
-                     {subcategories.map(s=>                
-                      <tr key={s.Id}>
-                       <td>{s.name}</td>
-                       <td>
-                          <img src={`/imagesread/getimage?filename=${s.imgfilename}`} style={{ width: 50 }} />
-                       </td>
-                       <td>
-                          <Link to={`/uplimg/${s.categoryId}, ${s.Id}`}> 
-                               <button className="btn btn-primary" >Upload Image</button>
-                           </Link>
-                       </td>
-                     </tr>               
-                     )} */}
-   
-                   
-                 </tbody>
+                </tbody>
               </table>
             </td>
            </tr> 
